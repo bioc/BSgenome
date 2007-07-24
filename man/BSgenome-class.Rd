@@ -7,20 +7,6 @@
 \alias{BSgenome}
 
 % Accesor methods:
-\alias{organism}
-\alias{organism,BSgenome-method}
-\alias{species}
-\alias{species,BSgenome-method}
-\alias{provider}
-\alias{provider,BSgenome-method}
-\alias{providerVersion}
-\alias{providerVersion,BSgenome-method}
-\alias{releaseDate}
-\alias{releaseDate,BSgenome-method}
-\alias{releaseName}
-\alias{releaseName,BSgenome-method}
-\alias{sourceUrl}
-\alias{sourceUrl,BSgenome-method}
 \alias{seqnames}
 \alias{seqnames,BSgenome-method}
 \alias{mseqnames}
@@ -45,7 +31,7 @@
 \title{The BSgenome class}
 
 \description{
-  A container for the complete genome sequence of a given species.
+  A container for the complete genome sequence of a given specie.
 }
 
 \details{
@@ -58,47 +44,8 @@
 
   \describe{
     \item{}{
-      \code{organism(x)}:
-      Return the target organism for this genome e.g. \code{"Homo sapiens"},
-      \code{"Mus musculus"}, \code{"Caenorhabditis elegans"}, etc...
-    }
-    \item{}{
-      \code{species(x)}:
-      Return the target species for this genome e.g. \code{"Human"},
-      \code{"Mouse"}, \code{"C. elegans"}, etc...
-    }
-    \item{}{
-      \code{provider(x)}:
-      Return the provider of this genome e.g. \code{"UCSC"}, \code{"BDGP"},
-      \code{"FlyBase"}, etc...
-    }
-    \item{}{
-      \code{providerVersion(x)}:
-      Return the provider-side version of this genome.
-      For example UCSC uses versions \code{"hg18"}, \code{"hg17"}, etc...
-      for the different Builds of the Human genome.
-    }
-    \item{}{
-      \code{releaseDate(x)}:
-      Return the release date of this genome e.g. \code{"Mar. 2006"}.
-    }
-    \item{}{
-      \code{releaseName(x)}:
-      Return the release name of this genome, which is generally made of the
-      name of the organization who assembled it plus its Build version.
-      For example, UCSC uses \code{"hg18"} for the version of the
-      Human genome corresponding to the Build 36.1 from NCBI hence
-      the release name for this genome is \code{"NCBI Build 36.1"}.
-    }
-    \item{}{
-      \code{sourceUrl(x)}:
-      Return the source URL i.e. the permanent URL to the place where the
-      FASTA files used to produce the sequences contained in \code{x} can
-      be found (and downloaded).
-    }
-    \item{}{
       \code{seqnames(x)}:
-      Return the index of the single sequences contained in \code{x}.
+      Returns the index of the single sequences contained in \code{x}.
       Each single sequence is stored in a \link[Biostrings]{BString} (or derived)
       object and comes from a source file (FASTA) with a single record.
       The names returned by \code{seqnames(x)} usually reflect the names
@@ -107,7 +54,7 @@
     }
     \item{}{
       \code{mseqnames(x)}:
-      Return the index of the multiple sequences contained in \code{x}.
+      Returns the index of the multiple sequences contained in \code{x}.
       Each multiple sequence is stored in a \link[Biostrings]{BStringViews}
       object and comes from a source file (FASTA) with multiple records.
       The names returned by \code{mseqnames(x)} usually reflect the names
@@ -116,7 +63,7 @@
     }
     \item{}{
       \code{names(x)}:
-      Return the index of all sequences contained in \code{x}.
+      Returns the index of all sequences contained in \code{x}.
       This is the same as \code{c(seqnames(x), mseqnames(x))}.
     }
   }
@@ -130,7 +77,7 @@
   \describe{
     \item{}{
       \code{length(x)}:
-      Return the length of \code{x}, i.e., the number of all sequences
+      Returns the length of \code{x}, i.e., the number of all sequences
       that it contains. This is the same as \code{length(names(x))}.
     }
     \item{}{
@@ -187,7 +134,7 @@
   class(Celegans$chrV)                  # Chromosome V (like any other
                                         # chromosome sequence) is a DNAString
                                         # object.
-  nchar(Celegans$chrV)                  # It has 20922231 letters (nucleotides).
+  nchar(Celegans$chrV)                  # Its has 20922231 letters (nucleotides).
   x <- Celegans$chrV                    # Very fast because a BString object
                                         # doesn't contain the sequence, only a
                                         # pointer to the sequence, hence chrV
