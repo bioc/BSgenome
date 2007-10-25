@@ -1,3 +1,4 @@
+
 buildDataFiles <- function(srcdir, destdir, names, prefix="", suffix="", comments=NULL, single.seq=TRUE)
 {
     if (length(names) == 0)
