@@ -194,7 +194,7 @@
     if (nhits > 1L)
         stop("sequence ", name, " found more than once, ",
              "please use a non-ambiguous name")
-    ans <- subseq(subject, start=start, width=width)
+    ans <- subseq(subject, start=start, end=end, width=width)
     if (strand == "+")
         return(xvcopy(ans))
     if (strand == "-")
