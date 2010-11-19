@@ -218,9 +218,45 @@ getSeq(x, ...)
          start=myseqs$start, end=myseqs$end, strand=myseqs$strand)
 
   ## ---------------------------------------------------------------------
-  ## C. RANDOMLY EXTRACTING A HIGH NUMBER OF 40-MERS FROM A GENOME
+  ## C. USING A GRanges OBJECT
   ## ---------------------------------------------------------------------
 
+  gr1 <- GRanges(seqnames=c("chrI", "chrI", "chrM"),
+                 ranges=IRanges(start=101:103, width=9))
+  gr1  # all strand values are "*"
+  getSeq(Celegans, gr1)  # treat strand values as if they were "+"
+
+  strand(gr1)[] <- "-"
+  getSeq(Celegans, gr1)
+
+  strand(gr1)[1] <- "+"
+  getSeq(Celegans, gr1)
+
+  strand(gr1)[2] <- "*"
+  if (interactive) {
+    getSeq(Celegans, gr1)  # Error: cannot mix "*" with other strand values
+  }
+
+  gr2 <- GRanges(seqnames=c("chrM", "NM_058280"),
+                 ranges=IRanges(start=103:102, width=9))
+  gr2
+  if (interactive) {
+    ## Because the sequence names are supplied via a GRanges object, they
+    ## are not treated as regular expressions:
+    getSeq(Celegans, gr2)  # Error: sequence NM_058280 not found
+  }
+
+  gr3 <- GRanges(seqnames=names(Celegans$upstream1000),
+                 ranges=IRanges(end=width(Celegans$upstream1000), width=9))
+  gr4 <- GRanges(seqnames=names(Celegans$upstream2000),
+                 ranges=IRanges(end=width(Celegans$upstream2000), width=9))
+  stopifnot(identical(getSeq(Celegans, gr3), getSeq(Celegans, gr4)))
+
+  ## ---------------------------------------------------------------------
+  ## D. RANDOMLY EXTRACTING A HIGH NUMBER OF 40-MERS FROM A GENOME
+  ## ---------------------------------------------------------------------
+
+  ## Note the use of 'as.character=FALSE'.
   extractRandomReads <- function(x, density, readlength)
   {
       if (!is.integer(readlength))
