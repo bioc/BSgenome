@@ -224,7 +224,7 @@ getSeq(x, ...)
   gr1 <- GRanges(seqnames=c("chrI", "chrI", "chrM"),
                  ranges=IRanges(start=101:103, width=9))
   gr1  # all strand values are "*"
-  getSeq(Celegans, gr1)  # treat strand values as if they were "+"
+  getSeq(Celegans, gr1)  # treats strand values as if they were "+"
 
   strand(gr1)[] <- "-"
   getSeq(Celegans, gr1)
@@ -246,14 +246,8 @@ getSeq(x, ...)
     getSeq(Celegans, gr2)  # Error: sequence NM_058280 not found
   }
 
-  gr3 <- GRanges(seqnames=names(Celegans$upstream1000),
-                 ranges=IRanges(end=width(Celegans$upstream1000), width=9))
-  gr4 <- GRanges(seqnames=names(Celegans$upstream2000),
-                 ranges=IRanges(end=width(Celegans$upstream2000), width=9))
-  stopifnot(identical(getSeq(Celegans, gr3), getSeq(Celegans, gr4)))
-
   ## ---------------------------------------------------------------------
-  ## D. RANDOMLY EXTRACTING A HIGH NUMBER OF 40-MERS FROM A GENOME
+  ## D. EXTRACTING A HIGH NUMBER OF RANDOM 40-MERS FROM A GENOME
   ## ---------------------------------------------------------------------
 
   ## Note the use of 'as.character=FALSE'.
