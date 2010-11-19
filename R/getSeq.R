@@ -179,15 +179,20 @@
 ###
 
 .getOneSeqFromBSgenomeMultipleSequences <- function(x, name,
-                                                    start, end, width, strand)
+                                                    start, end, width, strand,
+                                                    exact.match)
 {
     nhits <- 0L
     for (mseqname in mseqnames(x)) {
         mseq <- x[[mseqname]]
-        ii <- grep(name, names(mseq))
-        nhits <- nhits + length(ii)
-        if (length(ii) == 1L)
+        if (exact.match) {
+            ii <- which(names(mseq) == name)
+        } else {
+            ii <- grep(name, names(mseq))
+        }
+        if (nhits == 0L && length(ii) == 1L)
             subject <- mseq[[ii]]
+        nhits <- nhits + length(ii)
     }
     if (nhits == 0L)
         stop("sequence ", name, " not found")
@@ -224,7 +229,8 @@
         ans <- lapply(seq_len(length(names)),
             function(i)
                 .getOneSeqFromBSgenomeMultipleSequences(x, names[i],
-                                start[i], end[i], width[i], strand[i])
+                                start[i], end[i], width[i], strand[i],
+                                exact.match=FALSE)
         )
     } else {
         ans <- lapply(seq_len(length(names)),
@@ -235,7 +241,8 @@
                 width <- width(names)[i]
                 strand <- as.character(strand(names))[i]
                 .getOneSeqFromBSgenomeMultipleSequences(x, name,
-                                start, NA, width, strand)
+                                start, NA, width, strand,
+                                exact.match=TRUE)
             }
         )
     }
