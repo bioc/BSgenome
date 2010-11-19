@@ -187,10 +187,8 @@ getSeq(x, ...)
   # or as a DNAString object (more efficient):
   s2 <- getSeq(Celegans, "NM_058280_up_1000", as.character=FALSE)
 
-  getSeq(Celegans, "NM_058280_up_5000", start=-1000) == s1  # TRUE
-
-  getSeq(Celegans, "NM_058280_up_5000",
-         start=-1000, as.character=FALSE) == s2  # TRUE
+  stopifnot(identical(as.character(s2), s1))
+  stopifnot(identical(getSeq(Celegans, "NM_058280_up_5000", start=-1000), s1))
 
   \dontrun{
     # Fails because there is more than one sequence across
@@ -237,13 +235,13 @@ getSeq(x, ...)
     getSeq(Celegans, gr1)  # Error: cannot mix "*" with other strand values
   }
 
-  gr2 <- GRanges(seqnames=c("chrM", "NM_058280"),
+  gr2 <- GRanges(seqnames=c("chrM", "NM_058280_up_1000"),
                  ranges=IRanges(start=103:102, width=9))
   gr2
   if (interactive) {
     ## Because the sequence names are supplied via a GRanges object, they
     ## are not treated as regular expressions:
-    getSeq(Celegans, gr2)  # Error: sequence NM_058280 not found
+    getSeq(Celegans, gr2)  # Error: sequence NM_058280_up_1000 not found
   }
 
   ## ---------------------------------------------------------------------
