@@ -12,7 +12,7 @@ source_url: ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR9_genome_release/
 organism_biocview: Arabidopsis_thaliana
 BSgenomeObjname: Athaliana
 seqnames: paste("Chr", c(1:5, "M", "C"), sep="")
-nmask_per_seq: 1
+nmask_per_seq: 2
 SrcDataFiles1: ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR9_genome_release/TAIR9_chr_all.fas
 SrcDataFiles2: AGAPS masks: ftp://ftp.arabidopsis.org/home/tair/Genes/TAIR9_genome_release/TAIR9_gff3/Assembly_GFF/tair9_Assembly_gaps.gff
 PkgExamples: Athaliana
