@@ -19,6 +19,5 @@ PkgExamples: Athaliana
 	seqlengths(Athaliana)
 	Athaliana$Chr1  # same as Athaliana[["Chr1"]]
 seqs_srcdir: /home/hpages/BSgenomeForge/srcdata/BSgenome.Athaliana.TAIR.TAIR9/seqs
-seqfiles_suffix: .fas
 masks_srcdir: /home/hpages/BSgenomeForge/srcdata/BSgenome.Athaliana.TAIR.TAIR9/masks
 AGAPSfiles_name: gap.txt
