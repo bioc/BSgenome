@@ -394,7 +394,7 @@ setClass(
         License="Artistic-2.0",
         source_url="-- information not available --",
         seqnames="NULL",              # equivalent to "character(0)"
-        mseqnames="NULL",
+        mseqnames="NULL",             # equivalent to "character(0)"
         nmask_per_seq=0L,
         PkgDetails="",
         SrcDataFiles1="-- information not available --",

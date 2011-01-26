@@ -18,6 +18,7 @@ pkgs <- c(
   "BSgenome.Dmelanogaster.UCSC.dm2",
   "BSgenome.Dmelanogaster.UCSC.dm3",
   "BSgenome.Ecoli.NCBI.20080805",
+  "BSgenome.Gaculeatus.UCSC.gasAcu1",
   "BSgenome.Ggallus.UCSC.galGal3",
   "BSgenome.Hsapiens.UCSC.hg17",
   "BSgenome.Hsapiens.UCSC.hg18",
