@@ -186,7 +186,7 @@ setGeneric("SNPlocs", signature="x",
 setMethod("SNPlocs", "InjectSNPsHandler",
     function(x, seqname)
     {
-        .Deprecated("SNPlocs")
+        .Deprecated("snplocs")
         snplocs(x, seqname)
     }
 )
