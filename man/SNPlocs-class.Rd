@@ -64,18 +64,15 @@
 snpcount(x)
 
 snpsBySeqname(x, seqnames, ...)
-
 \S4method{snpsBySeqname}{SNPlocs}(x, seqnames, drop.rs.prefix=FALSE)
 
 snpsByOverlaps(x, ranges, maxgap=0L, minoverlap=0L,
                type=c("any", "start", "end", "within", "equal"), ...)
-
 \S4method{snpsByOverlaps}{SNPlocs}(x, ranges, maxgap=0L, minoverlap=0L,
                type=c("any", "start", "end", "within", "equal"),
                drop.rs.prefix=FALSE, ...)
 
 snpsById(x, ids, ...)
-
 \S4method{snpsById}{SNPlocs}(x, ids, ifnotfound=c("error", "warning", "drop"))
 
 ## Old API
