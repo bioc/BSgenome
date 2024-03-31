@@ -6,20 +6,17 @@ biocViews: Genetics, Infrastructure, DataRepresentation, SequenceMatching,
 	Annotation, SNP
 URL: https://bioconductor.org/packages/BSgenome
 BugReports: https://github.com/Bioconductor/BSgenome/issues
-Version: 1.71.3
+Version: 1.71.4
 License: Artistic-2.0
 Encoding: UTF-8
-Authors@R: c(
-	person("Hervé", "Pagès", role=c("aut", "cre"),
-		email="hpages.on.github@gmail.com"),
-	person("Prisca Chidimma", "Maduka", role="ctb",
-		comment="add 'replace' argument to forgeBSgenomeDataPkg()"))
+Authors@R: person("Hervé", "Pagès", role=c("aut", "cre"),
+		  email="hpages.on.github@gmail.com")
 Depends: R (>= 2.8.0), methods, BiocGenerics (>= 0.13.8),
 	S4Vectors (>= 0.17.28), IRanges (>= 2.13.16),
 	GenomeInfoDb (>= 1.25.6), GenomicRanges (>= 1.31.10),
-	Biostrings (>= 2.47.6), BiocIO, rtracklayer (>= 1.39.7)
+	Biostrings (>= 2.47.6), BiocIO, rtracklayer
 Imports: utils, stats, matrixStats, XVector, Rsamtools
-Suggests: BiocManager, Biobase,
+Suggests: BiocManager,
 	BSgenome.Celegans.UCSC.ce2,
 	BSgenome.Hsapiens.UCSC.hg38,
 	BSgenome.Hsapiens.UCSC.hg38.masked,
@@ -53,4 +50,4 @@ Collate: utils.R
 	BSgenomeViews-class.R
 	BSgenome-utils.R
 	export-methods.R
-	BSgenomeForge.R
+	AdvancedBSgenomeForge.R

@@ -12,8 +12,9 @@ import(GenomicRanges)
 import(XVector)
 import(Biostrings)
 importFrom(BiocIO, export)
-importMethodsFrom(BiocIO, export)
-import(rtracklayer)
+importMethodsFrom(BiocIO, import, export)
+importClassesFrom(rtracklayer, TwoBitFile)
+importFrom(rtracklayer, TwoBitFile)
 import(Rsamtools)
 
 
@@ -28,10 +29,7 @@ exportClasses(
     InjectSNPsHandler,
     XtraSNPlocs,
     BSgenome, MaskedBSgenome,
-    BSgenomeViews,
-
-    ## BSgenomeForge classes:
-    BSgenomeDataPkgSeed
+    BSgenomeViews
 )
 
 
@@ -140,11 +138,13 @@ export(
     writeBSgenomeToFasta,
     writeBSgenomeToTwobit,
 
-    ## BSgenomeForge.R:
+    ## AdvancedBSgenomeForge.R:
     forgeSeqlengthsRdsFile,
     forgeSeqlengthsRdaFile,
     forgeSeqFiles,
-    forgeMasksFiles
+    forgeMasksFiles,
+    forgeBSgenomeDataPkg,
+    forgeMaskedBSgenomeDataPkg
 )
 
 
@@ -173,11 +173,7 @@ export(
     masknames,
 
     ## injectSNPs.R:
-    injectSNPs,
-
-    ## BSgenomeForge.R:
-    forgeBSgenomeDataPkg,
-    forgeMaskedBSgenomeDataPkg
+    injectSNPs
 )
 
 ### Exactly the same list as above.
@@ -191,8 +187,6 @@ exportMethods(
     sourceUrl,
     mseqnames,
     masknames,
-    injectSNPs,
-    forgeBSgenomeDataPkg,
-    forgeMaskedBSgenomeDataPkg
+    injectSNPs
 )
 

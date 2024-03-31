@@ -159,8 +159,7 @@ available.genomes <- function(splitNameParts=FALSE, type=getOption("pkgType"))
          "  to check the list of BSgenome data packages that are available ",
          "in the\n  Bioconductor repositories for your version of ",
          "R/Bioconductor.\n  If you don't find what you are looking for, ",
-         "please see the BSgenomeForge\n  vignette in the BSgenome software ",
-         "package for how to forge a ",
+         "please use the BSgenomeForge package to forge a ",
          ifelse(masked, "masked ", ""), "BSgenome\n  data package ",
          "for your organism of interest.")
 }
@@ -190,9 +189,8 @@ available.genomes <- function(splitNameParts=FALSE, type=getOption("pkgType"))
                 .stopOnAvailablePkg(genome, is.source=TRUE)
         }
         stop(c("Package ", genome, " is not available.\n  ",
-               wmsg("Please see the BSgenomeForge vignette in the BSgenome ",
-                    "software package for how to forge a BSgenome data ",
-                    "package for your organism of interest.")))
+               wmsg("Please use the BSgenomeForge package to forge a ",
+                    "BSgenome data package for your organism of interest.")))
     }
     ## Package 'genome' was successfully loaded.
     ans <- try(get(genome, envir=pkgenvir, inherits=FALSE), silent=TRUE)
