@@ -13,7 +13,7 @@ load_package_gracefully <- function(package, ...)
 
 call_fun_in_BSgenomeForge <- function(fun, ...)
 {
-    load_package_gracefully("BSgenomeForge", "Starting with BioC 3.19, ",
+    load_package_gracefully("BSgenomeForge", "starting with BioC 3.19, ",
                             "calling ", fun, "()")
     msg <- c(fun, "() has moved to the BSgenomeForge package. Please ",
              "call BSgenomeForge::", fun, "() to get rid of this warning.")
