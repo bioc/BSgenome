@@ -137,9 +137,9 @@ setValidity2("OnDiskLongTable", .valid_OnDiskLongTable)
 
 .check_OnDiskLongTable_rowids <- function(rowids)
 {
-    if (!is.integer(rowids))
-        stop(wmsg("'rowids' must be an integer vector"))
-    if (S4Vectors:::anyMissing(rowids) || anyDuplicated(rowids))
+    if (!is.numeric(rowids))
+        stop(wmsg("'rowids' must be a numeric vector"))
+    if (anyNA(rowids) || anyDuplicated(rowids))
         stop(wmsg("'rowids' cannot contain NAs or duplicated values"))
 }
 
