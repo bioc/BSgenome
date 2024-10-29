@@ -153,12 +153,12 @@ normarg_ranges <- function(ranges)
     ranges
 }
 
-### Return an integer vector with no NAs parallel to 'ids'.
+### Return a numeric vector parallel to 'ids' and with no NAs.
 ids2rowids <- function(ids)
 {
     if (!(is.character(ids) || is.numeric(ids)))
-        stop(wmsg("'ids' must be a character or integer vector with no NAs"))
-    if (S4Vectors:::anyMissing(ids))
+        stop(wmsg("'ids' must be a character or numeric vector with no NAs"))
+    if (anyNA(ids))
         stop(wmsg("'ids' cannot contain NAs"))
     if (is.character(ids)) {
         prefixes <- unique(substr(ids, 1L, 2L))
@@ -170,17 +170,12 @@ ids2rowids <- function(ids)
             ids <- substr(ids, 3L, nchar(ids))
         }
         ids <- suppressWarnings(as.numeric(ids))
-        if (S4Vectors:::anyMissing(ids))
+        if (anyNA(ids))
             stop(wmsg("cannot extract the digital part of ",
                       "some SNP ids in 'ids'"))
     }
     if (length(ids) != 0L && min(ids) < 0)
         stop(wmsg("'ids' contains unrealistic SNP ids"))
-    if (!is.integer(ids)) {
-        ids <- suppressWarnings(as.integer(ids))
-        if (S4Vectors:::anyMissing(ids))
-            stop(wmsg("'ids' contains SNP ids that are too big"))
-    }
     ids
 }
 
